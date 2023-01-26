@@ -42,10 +42,12 @@ let displayProducts;
                         <i class="fa-regular fa-heart"></i>
                         <span>Wishlist</span>
                     </a>
+                    ${item.sold === true ? '' : `
                     <a class="btn" onclick="openShopMenu(${item.id})">
                         <i class="fa-solid fa-cart-shopping"></i>
                         <span>Quick Shop</span>
                     </a>
+                    `}
                     <a href="#" class="btn">
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <span>Quick View</span>
@@ -83,14 +85,6 @@ let displayProducts;
 function saveItemData(id) {
     localStorage.setItem('productId' , id)
 }
-// swatchInput.forEach(item => {
-//         item.addEventListener('click' , () => {
-//             imgCart = item.dataset.img;
-//             slVariant.innerHTML = item.value
-//             swatchInput.forEach(item => item.checked = false)
-//             item.checked = true
-//             console.log(imgCart);
-//     })
 let quick_shop = document.querySelectorAll('.quick_shop')
 function openShopMenu(id){
     quick_shop.forEach(item => {
